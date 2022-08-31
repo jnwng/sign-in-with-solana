@@ -16,8 +16,8 @@ This PoC looks to accommodate for the following things:
 
 Some credits and research along the way, some of which informed the strategies being used here, are being used directly in this example, or just good references for other implementations.
 
-- Crossmint
-- Web3Auth
-- Jordan Sexton's proposal on Solana Pay authentication
-- Ceramic
-- Signing bytes with Ledger
+- Crossmint's [solana-auth](https://github.com/Crossmint/solana-auth)
+- Web3Auth's [sign-in-with-web3](https://github.com/web3auth/sign-in-with-web3)
+- Jordan Sexton's [proposal](https://twitter.com/jordaaash/status/1560386497370419200) on Solana Pay authentication
+- Ceramic's work on establishing chain-agnostic [sign-in mechanics](https://github.com/ChainAgnostic/namespaces/pull/28)
+- Signing bytes with the Solana app on Ledger ([workaround](https://github.com/solana-labs/solana/issues/21366#issuecomment-1197497238)) (not yet implemented)
