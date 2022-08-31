@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sign-in with Solana
 
-## Getting Started
+This is a proof-of-concept composition of various "sign-in with Solana" efforts to demonstrate the viability of server-side verification of both messages and signed transactions to validate ownership of a wallet.
 
-First, run the development server:
+Primarily, this strategy can be used along with OAuth-related account management to "associate" multiple Solana wallets to an OAuth account.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Preface
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This PoC looks to accommodate for the following things:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Signing arbitrary bytes with the Solana app on Ledger has not yet been finalized (context, context), thus signing messages alone will not suffice
+- In centralized contexts, server-side verification of wallet ownership is required
+- Standards like Solana Pay can be extended to handle remote signing to validate ownership
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## References
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Some credits and research along the way, some of which informed the strategies being used here, are being used directly in this example, or just good references for other implementations.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Crossmint
+- Web3Auth
+- Jordan Sexton's proposal on Solana Pay authentication
+- Ceramic
+- Signing bytes with Ledger
