@@ -3,16 +3,20 @@ import {
   useWallet,
   WalletContextState,
 } from "@solana/wallet-adapter-react";
-import {
-  WalletDisconnectButton,
-  WalletMultiButton,
-} from "@solana/wallet-adapter-react-ui";
+import { WalletDisconnectButton } from "@solana/wallet-adapter-react-ui";
 import React, { useState } from "react";
 import styles from "../public/css/solana.module.css";
 import SolanaLogo from "../public/solanaLogoMark.png";
 import Image from "next/image";
 import bs58 from "bs58";
 import { useMutation, useQuery } from "react-query";
+import dynamic from "next/dynamic";
+
+const WalletMultiButtonDynamic = dynamic(
+  async () =>
+    (await import("@solana/wallet-adapter-react-ui")).WalletMultiButton,
+  { ssr: false }
+);
 
 const getMessageToVerify = async (
   publicKey: string
@@ -128,7 +132,7 @@ const Solana: React.FC = () => {
         </div>
       )}
       {wallet.connected != true && sign == "" && (
-        <WalletMultiButton className={styles.walletButton} />
+        <WalletMultiButtonDynamic className={styles.walletButton} />
       )}
     </>
   );
